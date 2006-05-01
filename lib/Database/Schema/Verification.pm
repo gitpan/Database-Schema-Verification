@@ -7,7 +7,7 @@ use MIME::Lite;
 use Class::ParmList qw(parse_parms);
 use Time::Timestamp;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 use constant TABLE => 'verification';
 use constant HARD_RETURN_LIMIT => 500; # hard coded hashref return limit, can be overridden locally
 
@@ -291,7 +291,7 @@ sub insert {
 
 =head2 requestVerification()
 
-Function takes in MIME::Lite parms and submits a notification for review. It can become particularly useful when coupled with a cgi script (see contrib directory). Embedding links into these messages allows you to verify or supress verification by clicking a link in the email.
+Function takes in MIME::Lite parms and submits a notification for review. It can become particularly useful when coupled with a cgi script (see contrib directory). Embedding links into these messages allows you to verify or suppress verification by clicking a link in the email.
 
   my $msg = 'Please Verify Me!!!!';
   $v->requestVerification(
@@ -313,7 +313,7 @@ Returns:
 
 =item update
 
-By default, a call to requestVerification() will update our 'verified' status in the table to 0 (notified, but unverified). If for some reason we need to supress it, setting -update => 0 (NOT UNDEF!) will do override it for us.
+By default, a call to requestVerification() will update our 'verified' status in the table to 0 (notified, but unverified). If for some reason we need to suppress it, setting -update => 0 (NOT UNDEF!) will do override it for us.
 
 =item debug
 
@@ -571,7 +571,7 @@ Sets the verification status of the object.
 my $ACTIONS = {
 	'UNVERIFIED'	=> 0,	# unverified but notification has been sent
 	'VERIFY'	=> 1,	# duh
-	'SUPRESS'	=> 2,	# its what jcmurphy likes to call a 'false positive'
+	'SUPPRESS'	=> 2,	# its what jcmurphy likes to call a 'false positive'
 	'UNDEFINE'	=> 3,	# reset so the notification can be triggered again
 	'REMOVE'	=> 4,	# get rid of the evidence
 };
@@ -582,7 +582,7 @@ Actions [and or status]:
 
   0 - UNVERIFIED	# unverified but notification has been sent [set status to 'wait']
   1 - VERIFY		# duh
-  2 - SUPRESS		# its what jcmurphy likes to call a 'false positive'
+  2 - SUPPRESS		# its what jcmurphy likes to call a 'false positive'
   3 - UNDEFINE		# reset so the notification can be triggered again
   4 - REMOVE		# get rid of the evidence
 

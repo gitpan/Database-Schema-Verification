@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 use Config::Simple;
 use Database::Schema::Verification;
@@ -73,12 +73,12 @@ for(uc(param('action'))){
 		else { print br('VERIFY Failed: '.escapeHTML($err)); }
 		last;
 	}
-	if(/^SUPRESS$/){
+	if(/^SUPPRESS$/){
 		print '<script language=javascript>resizeTo(200,200);</script>'."\n";
 		print br('Suppressing id: ', tt(escapeHTML(param('vid'))))."\n";
 		my ($err,$rv) = $v->verify(-action => 2);
-		if($rv){ print br('SUPRESSED: '.escapeHTML(param('vid'))); }
-		else { print br('SUPRESS Failed: '.escapeHTML($err)); }
+		if($rv){ print br('SUPPRESSED: '.escapeHTML(param('vid'))); }
+		else { print br('SUPPRESS Failed: '.escapeHTML($err)); }
 		last;
 	}
 	if(/^UNDEFINE$/){
