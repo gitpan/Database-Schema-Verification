@@ -7,7 +7,7 @@ use MIME::Lite;
 use Class::ParmList qw(parse_parms);
 use Time::Timestamp;
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 use constant TABLE => 'verification';
 use constant HARD_RETURN_LIMIT => 500; # hard coded hashref return limit, can be overridden locally
 
